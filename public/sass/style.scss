@@ -1,0 +1,37 @@
+/* I M P O R T S
+-------------------------------------------------------------------------------*/
+@import 'reset';
+
+
+/* V A R I A B L E S
+-------------------------------------------------------------------------------*/
+$min-height: 300px;
+
+
+/* F O N T S
+-------------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'NeoNoire';
+  src: url('../fonts/SNNeoNoire-Regular.ttf') format('truetype');
+}
+
+
+/* S T Y L E S
+-------------------------------------------------------------------------------*/
+html,
+body {
+  overflow: hidden;
+}
+
+html.viper-page {
+  overflow: auto;
+}
+
+body {
+  font: 13px Helmet, Freesans, sans-serif;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'NeoNoire', Arial;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vipos_mk4",
+  "version": "1.0.0",
+  "description": "VipOS Mark 4 Overlay + Chat bot system",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "type": "module",
+  "author": "Doc Viper <viper@docviper.com> (http://doctorviper.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@twurple/api": "^5.2.7",
+    "@twurple/auth": "^5.2.7",
+    "@twurple/chat": "^5.2.7",
+    "@twurple/eventsub": "^5.2.7",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7"
+  }
+}
