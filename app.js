@@ -25,10 +25,28 @@ app.get('/', (req, res) => {
 })
 
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
+io.on('connection', function (socket) {
+  socket.emit('greeting-from-server', {
+      greeting: 'Hello Client'
+  });
+  socket.on('greeting-from-client', function (message) {
+    console.log(message);
+  });
 });
 
+// io.on('connection', (socket) => {
+//   // socket.emit('request', /* … */); // emit an event to the socket
+//   // io.emit('broadcast', /* … */); // emit an event to all connected sockets
+//   // socket.on('reply', () => { /* … */ }); // listen to the event
+
+//   // send a message to the client
+//   socket.emit("hello from server", "message");
+
+//     // console.log('a user connected');
+//   // socket.on('chat message', msg => {
+//   //   io.emit('chat message', msg);
+//   // });
+// });
 
 /**
  * Overlays
