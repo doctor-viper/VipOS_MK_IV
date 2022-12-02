@@ -69,7 +69,6 @@ h1,h2,h3,h4,h5,h6 {
 /* Info Bar ( followers, subs, etc )
 -------------------------------------------------------------------------------*/
 #viper-info_bar {
-  //background-image: url('../img/dv_background.gif');
   height: 50px;
   position: relative;
   width: 1880px;
@@ -102,10 +101,10 @@ h1,h2,h3,h4,h5,h6 {
 	0% {
 		top: -50px;
 	}
-	5% {
+	2% {
 		top: 0px;
 	}
-  45% {
+  48% {
     top: 0px
   }
   50% {
