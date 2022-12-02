@@ -88,10 +88,10 @@ h1,h2,h3,h4,h5,h6 {
       text-shadow: -3px 3px #000;
     }
 
-    &.cmd { animation: infobar 30s ease infinite; }
-    &.discord { animation: infobar 30s ease infinite; animation-delay: 0.2s; }
-    &.socials { animation: infobar 30s ease infinite; animation-delay: 0.4s; }
-    &.lurk { animation: infobar 30s ease infinite; animation-delay: 0.6s; }
+    &.cmd { animation: infobar 60s ease infinite; }
+    &.discord { animation: infobar 60s ease infinite; animation-delay: 0.2s; }
+    &.socials { animation: infobar 60s ease infinite; animation-delay: 0.4s; }
+    &.lurk { animation: infobar 60s ease infinite; animation-delay: 0.6s; }
 
   }
 
@@ -100,17 +100,25 @@ h1,h2,h3,h4,h5,h6 {
 @keyframes infobar {
 	0% {
 		top: -50px;
+    left: 0px;
 	}
-	2% {
+	1% {
 		top: 0px;
+    left: 0;
 	}
-  48% {
-    top: 0px
+  49% {
+    top: 0px;
+    left: 0;
   }
   50% {
+    left: -940px;
+  }
+  75% {
     top: -50px;
+    left: -940px;
   }
   100% {
     top: -50px;
+    left: 0px;
   }
 }
