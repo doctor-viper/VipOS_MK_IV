@@ -1,10 +1,9 @@
 const express = require('express');
-// const path = require('path');
-
 const app = express();
-
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http);
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
 
 /**
@@ -24,6 +23,11 @@ app.get('/', (req, res) => {
   res.send('VipOS MARK IV')
   //res.sendFile(path.resolve(__dirname, './templates/header.html'))
 })
+
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
 
 
 /**
@@ -51,6 +55,6 @@ app.all('*', (req, res) => {
  * Listen on port
  * 
  */
-app.listen(5000, () => {
+server.listen(5000, () => {
   console.log('server is listening on port 5000....')
 })
