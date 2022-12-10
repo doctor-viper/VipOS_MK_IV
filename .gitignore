@@ -3,3 +3,4 @@ tokens.json
 node_modules/*
 public/fonts/*
 public/video/*
+discord_key.txt
