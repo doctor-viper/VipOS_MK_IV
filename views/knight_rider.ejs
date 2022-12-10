@@ -1,0 +1,155 @@
+<%- include("templates/header") %>
+
+
+<div id="viper-knight_rider">
+    <div class="col col-0">
+      <div class="button yellow">ALT</div>
+      <div class="button yellow">OIL PRESS</div>
+      <div class="button red">OIL TEMP</div>
+      <div class="button red">EGT</div>
+      <div class="button red">FUEL</div>
+    </div>
+    <div class="voice">
+      <div class="col col-1">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="col col-2">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>    
+      </div>
+      <div class="col col-3">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>    
+      </div>
+    </div>
+    <div class="col col-4">
+      <div class="button yellow">AUX</div>
+      <div class="button yellow">SAT COMM</div>
+      <div class="button red">ACC</div>
+      <div class="button red">RADAR</div>
+      <div class="button red">MP1</div>    
+    </div>
+  </div>
+
+
+  <script>
+
+    
+    var volumen = 1;
+    var cols = document.querySelectorAll('.voice .col');
+
+    function volume() {
+    if (Math.round(Math.random() * 2) == 0)
+        volumen--;
+    else
+        volumen++;
+    
+    return volumen % 4;
+    }
+
+    function init() {
+        setInterval(function() {
+            v = volume();
+            paintKitt(cols[1], v);
+            paintKitt(cols[0], v-2);
+            paintKitt(cols[2], v-2);
+        }, 75);
+    }
+
+    function paintKitt(elem, intensity) {
+
+        var items = elem.querySelectorAll('.item');
+        var mitad = Math.ceil(items.length / 2);
+
+        // up
+        items[mitad].className = 'item red1';
+
+        for (j=0; j < intensity; j++) {
+        items[mitad+j].className = 'item red1';
+        items[mitad-j].className = 'item red1';
+        }
+
+        var color = 2;  
+        for (; j < mitad-1; j++) {
+            items[mitad+j].className = 'item red' + color;
+            items[mitad-j].className = 'item red' + color;
+            color = color + 1;
+            if (color > 4)
+              break;
+
+        }
+        for (; j < mitad-1; j++) {
+            items[mitad+j].className = 'item';
+            items[mitad-j].className = 'item';
+        }
+
+    }
+
+    init();
+
+  </script>
+
+
+<!-- <div id="viper-knight_rider">
+    
+    <div class="column left">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    
+    <div class="column middle">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <div class="column right">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+</div> -->
+
+
+
+<%- include("templates/footer") %>

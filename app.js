@@ -20,33 +20,21 @@ app.set("view engine","ejs")
  * 
  */
 app.get('/', (req, res) => {
-  res.send('VipOS MARK IV')
+  //res.send('VipOS MARK IV')
+  res.render('home_page.ejs')
   //res.sendFile(path.resolve(__dirname, './templates/header.html'))
 })
 
 
-io.on('connection', function (socket) {
-  socket.emit('greeting-from-server', {
-      greeting: 'Hello Client'
-  });
-  socket.on('greeting-from-client', function (message) {
-    console.log(message);
-  });
-});
-
-// io.on('connection', (socket) => {
-//   // socket.emit('request', /* … */); // emit an event to the socket
-//   // io.emit('broadcast', /* … */); // emit an event to all connected sockets
-//   // socket.on('reply', () => { /* … */ }); // listen to the event
-
-//   // send a message to the client
-//   socket.emit("hello from server", "message");
-
-//     // console.log('a user connected');
-//   // socket.on('chat message', msg => {
-//   //   io.emit('chat message', msg);
-//   // });
+// io.on('connection', function (socket) {
+//   socket.emit('greeting-from-server', {
+//       greeting: 'Hello Client'
+//   });
+//   socket.on('greeting-from-client', function (message) {
+//     console.log(message);
+//   });
 // });
+
 
 /**
  * Overlays
@@ -54,10 +42,33 @@ io.on('connection', function (socket) {
  */
 app.get('/overlay/cam-bg', (req, res) => {
   res.render('cam_bg.ejs')
+
+  io.on('connection', function (socket) {
+    socket.emit('greeting-from-server', {
+        greeting: 'Hello Client'
+    });
+    socket.on('greeting-from-client', function (message) {
+      console.log(message);
+    });
+  });
+
+
 })
 
 app.get('/overlay/info-bar', (req, res) => {
   res.render('info_bar.ejs')
+})
+
+app.get('/overlay/info-bar-side', (req, res) => {
+  res.render('info_bar_side.ejs')
+})
+
+app.get('/overlay/text-alert', (req, res) => {
+  res.render('text_alert.ejs')
+})
+
+app.get('/overlay/knight-rider', (req, res) => {
+  res.render('knight_rider.ejs')
 })
 
 /**

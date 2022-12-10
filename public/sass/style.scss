@@ -66,32 +66,32 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-/* Info Bar ( followers, subs, etc )
+/* Info Bar ( chat commands )
 -------------------------------------------------------------------------------*/
 #viper-info_bar {
-  height: 50px;
+  height: 100px;
   position: relative;
   width: 1880px;
-  
+  // background-image: url('../img/dv_background.gif');
   
   div.command {
     display: inline-block;
-    height: 50px;
-    padding: 0 15px;
+    height: 100px;
+    padding: 0 25px;
     position: relative;
-    top: -50px;
+    top: -100px;
 
     h1 {
       color: #fff;
-      font-size: 25px;
-      line-height: 47px;
-      text-shadow: -3px 3px #000;
+      font-size: 40px;
+      line-height: 97px;
+      text-shadow: -3px 3px #00fffc, -6px 6px #ff00f0, -9px 9px #000;
     }
 
-    &.cmd { animation: infobar 60s ease infinite; }
-    &.discord { animation: infobar 60s ease infinite; animation-delay: 0.2s; }
-    &.socials { animation: infobar 60s ease infinite; animation-delay: 0.4s; }
-    &.lurk { animation: infobar 60s ease infinite; animation-delay: 0.6s; }
+    &.cmd { animation: infobar 90s ease infinite; }
+    &.discord { animation: infobar 90s ease infinite; animation-delay: 0.2s; }
+    &.socials { animation: infobar 90s ease infinite; animation-delay: 0.4s; }
+    &.lurk { animation: infobar 90s ease infinite; animation-delay: 0.6s; }
 
   }
 
@@ -99,26 +99,454 @@ h1,h2,h3,h4,h5,h6 {
 
 @keyframes infobar {
 	0% {
-		top: -50px;
+		top: -100px;
     left: 0px;
 	}
 	1% {
 		top: 0px;
     left: 0;
+    //background-color: rgba(122, 50, 145, 0.75);
 	}
-  49% {
+  19% {
     top: 0px;
     left: 0;
   }
-  50% {
-    left: -940px;
+  20% {
+    left: -1040px;
   }
-  75% {
-    top: -50px;
-    left: -940px;
+  99% {
+    top: -100px;
+    left: -1040px;
   }
   100% {
-    top: -50px;
+    top: -100px;
     left: 0px;
   }
+}
+
+
+/* Info Bar ( chat commands )
+-------------------------------------------------------------------------------*/
+#viper-info_bar_side {
+  height: 490px;
+  padding: 150px 0 0 0;
+  position: relative;
+  width: 1880px;
+  // background-image: url('../img/dv_background.gif');
+  
+  div.command {
+    // display: inline-block;
+    padding: 0 0 15px 25px;
+    position: relative;
+    width: 300px;
+    top: 0px;
+    left: -350px;
+
+    h1 {
+      color: #fff;
+      font-size: 40px;
+      line-height: 70px;
+      text-shadow: -3px 3px #00fffc, -6px 6px #ff00f0, -9px 9px #000;
+    }
+
+    &.cmd { animation: infobar_side 90s ease infinite; }
+    &.lurk { animation: infobar_side 90s ease infinite; animation-delay: 0.2s; }
+    &.socials { animation: infobar_side 90s ease infinite; animation-delay: 0.4s; }
+    &.discord { animation: infobar_side 90s ease infinite; animation-delay: 0.6s; }
+    
+
+  }
+
+}
+
+@keyframes infobar_side {
+	0% {
+		left: -350px;
+    top: 0;
+  }
+	1% {
+		left: 0;
+    top: 0;
+    //background-color: rgba(122, 50, 145, 0.75);
+	}
+  19% {
+    left: 0;
+    top: 0;
+  }
+  20% {
+    top: -600px;
+  }
+  99% {
+    left: -350px;
+    top: -600px;
+  }
+  100% {
+    left: -350px;
+    top: 0;
+  }
+}
+
+
+
+/* Knight Rider Voice Box Overlay
+-------------------------------------------------------------------------------*/
+#viper-knight_rider {
+    width:450px;
+    display:flex;
+    align-items:center;
+    background-color: #000;
+
+  .voice {
+    width:350px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  .col {
+    display:inline-flex;
+    flex-direction:column;
+  }
+  
+  .item {
+    width:55px;
+    height:15px;
+    background:#000;
+    margin:3px 8px;
+  }
+  
+  // .red1 { background:#fa0000 }
+  // .red2 { background:#8d0000 }
+  // .red3 { background:#4d0000 }
+  // .red4 { background:#200000 }
+  .red1 { background:#0050b9; box-shadow: 0 0 1px 1px #0050b9; }
+  .red2 { background:#003a86; box-shadow: 0 0 1px 1px #003a86;}
+  .red3 { background:#001c41; box-shadow: 0 0 1px 1px #001c41;}
+  .red4 { background:#000f22; box-shadow: 0 0 1px 1px #000f22;}
+
+  .off { opacity:0.5 }
+  
+  .button {
+    width:60px;
+    height:35px;
+    border-radius:25px;
+    margin:10px 0;
+    font-family:sans-serif;
+    font-size:13px;
+    font-weight:bold;
+    color:#000;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    display:flex;
+  }
+  
+  .button.yellow {
+    background:yellow;
+  }
+  
+  .button.red {
+    background:red;
+  }
+  
+  .init {
+    border:1px solid #555;
+    background:RGBA(155,155,155, .15);
+    color:#777;
+    padding:10px;
+    margin:auto;
+    width:500px;
+    text-align:center;
+    font-size:22px;
+    cursor:pointer;
+  }
+  
+  .disable {
+    display:none;
+  }
+
+
+  // div.column { 
+  //   float: left;
+  //   margin: 0 5px 0 0;
+
+  //   div {
+  //     background-color: #aa0000;
+  //     border-radius: 3px;
+  //     height: 12px;
+  //     margin: 0 0 5px;
+  //     width: 40px;      
+
+  //     &.active {
+  //       background-color: #ff0000;
+  //       box-shadow: 0 0 2px 2px #ff0000;
+  //     }
+
+  //   }
+
+  // }
+
+}
+
+
+/* 80s grid home page
+-------------------------------------------------------------------------------*/
+
+.home-page {
+
+  .grid {
+    position:absolute;
+    bottom: -28.3%;
+    left:0;
+    margin-left: -50%;
+    width: 200%;
+    height: 100%;
+    background-position-y: 0px;
+    background-image: repeating-linear-gradient(90deg,var(--grid-color,black) 0%,transparent calc(1px + var(--grid-blur,0px)), transparent var(--grid-size),var(--grid-color,black) calc(var(--grid-size) + 1px + var(--grid-blur,0px))),
+                      repeating-linear-gradient(180deg,var(--grid-color,black) 0%,transparent calc(1px + var(--grid-blur,0px)), transparent var(--grid-size),var(--grid-color,black) calc(var(--grid-size) + 1px + var(--grid-blur,0px)));
+    transform:perspective(50vh) rotateX(60deg) translateZ(10px);
+    animation:moving-grid 0.5s infinite linear;
+    z-index:-1;
+  }
+
+    @keyframes moving-grid{
+      0%{
+        transform:perspective(50vh) rotateX(60deg) translateZ(10px) translateY(-var(--grid-size));
+      }
+      100%{
+        transform:perspective(50vh) rotateX(60deg) translateZ(10px) translateY(var(--grid-size));
+      }
+    }
+
+
+  .overlay{
+    width:100%;
+    height:100%;
+    z-index:9999;
+    position:absolute;
+    left:0;
+    top:0;
+    background-image: repeating-linear-gradient(rgba(0,0,0,0.3) 0,transparent 1px,transparent 2px,rgba(0,0,0,0.3) 3px);
+    pointer-events: none;
+  }
+
+  .background-80s{
+    background: linear-gradient(to bottom, #010310 0,#0c1142 24%,#45125e 45%,#d53567 60%,#f0c3d9 65%,#0c1142 65%) fixed;
+    background-size:100% var(--background-height,100vh);
+    overflow:hidden;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100vw;
+    height: var(--background-height,100vh);
+    z-index:-2;
+  }
+
+    .animated-clouds:before{
+      filter: url(#filter);
+    }
+
+    .background-80s:before{
+      content:'';
+      background: linear-gradient(to bottom, #010310 0,#0c1142 24%,#45125e 45%,#d53567 60%,#f0c3d9 65%,#0c1142 65%) fixed;
+      width:100%;
+      height:55%;
+      position:absolute;
+      z-index:-1;
+      left:0;
+      top:0;
+      opacity:0.2;
+    }
+
+  /*stars*/
+  .stars:after{
+    transform:translateY(-40%);
+    content:' ';
+    border-radius:100%;
+    width:3px;
+    height:4px;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+    box-shadow: 
+      5vw 15vh 2px white,
+      1vw 33vh 0px white,
+      2vw 25vh 2px white,
+      10vw 10vh 2px white,
+      12vw 20vh 0px white,
+      30vw 15vh 2px white,
+      16vw 5vh 2px white,
+      24vw 10vh 0px white,
+      32vw 40vh 0px white,
+      33vw 35vh 2px white,
+      12vw 38vh 2px white,
+      24vw 10vh 0px white,
+      33vw 5vh 2px white,
+      20vw 10vh 0px white,
+      80vw 10vh 2px white,
+      62vw 20vh 0px white,
+      60vw 15vh 2px white,
+      70vw 7vh 0px white,
+      62vw 50vh 0px white,
+      65vw 35vh 2px white,
+      64vw 10vh 0px white,
+      85vw 2vh 0px white,
+      92vw 40vh 0px white,
+      75vw 35vh 2px white,
+      90vw 10vh 0px white;
+    opacity:0.3;
+    animation:glitter 2s infinite;
+  }
+
+    @keyframes glitter{
+      0% {
+        opacity:0.5;
+      }
+      50% {
+        opacity:0.9;
+      }
+      
+      100% {
+        opacity:0.5;
+      }
+    }
+
+  .text{
+    position:absolute;
+    left:50%;
+    top:36%;
+    text-align:center;
+    transform:translate(-50%,-50%);
+    white-space:nowrap;
+  }
+
+  .chrome{
+    font-family: 'NeoNoire', Arial;
+    font-weight:900;
+    font-size:calc(30px + 10vh);
+    background-image:linear-gradient(#2989cc 0%, #d3e5ec 50%,#592451 51%,#b3628d 55%,#592451 59%,#b3628d 65%,#ac86a6 75%, #b3628d 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent; 
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255,255,255,0.4);
+    position:relative; 
+    
+  }
+
+  .chrome:before{
+    content:attr(data-text);
+    text-shadow: -1px -1px 1px #2989cc,-2px -2px 1px #2989cc, -3px -3px 1px #2989cc, 1px 1px 1px #000, 0px -1px 2px #000, -1px -2px 2px #000, 0 0 5px rgba(255,255,255,1); 
+    opacity:1;
+    position:absolute;
+    z-index:-1;
+  }
+
+  .shine:after{
+    content:attr(data-text);
+    background-image:linear-gradient(225deg,transparent 53%,white 55%,transparent 58%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    -webkit-background-clip:text;
+    z-index:999;
+    background-size: 400% 400%;
+    animation:shine 15s ease infinite;
+    animation-delay:var(--shine-delay,0s);
+  }
+
+  @keyframes shine{
+      0%{background-position:0% 51%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 51%}
+  }
+
+  .spark{
+    margin-top:calc( 4vh ) ;
+    margin-left:-0.3em;
+    line-height:0;
+    position:absolute;
+    width:37px;
+    height:45px;
+    z-index:999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='120 250 1700 1200' width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='402' width='182' y='-1' x='-1'/%3E%3Cg display='none' overflow='visible' y='0' x='0' height='100%25' width='100%25' id='canvasGrid'%3E%3Crect fill='url(%23gridpattern)' stroke-width='0' y='0' x='0' height='100%25' width='100%25'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cellipse ry='183' rx='5' id='svg_2' cy='197.0375' cx='274.5' stroke-width='0' stroke='%23000' fill='%23fff'/%3E%3Cellipse transform='rotate(90 274.50000000000006,197.03750610351565) ' ry='183' rx='5' id='svg_3' cy='197.0375' cx='274.5' stroke-width='0' stroke='%23000' fill='%23fff'/%3E%3Cellipse stroke='%23000' transform='rotate(126.69925689697266 276.19342041015625,195.4363708496094) ' ry='90.194158' rx='3.223029' id='svg_4' cy='195.43637' cx='276.193439' stroke-width='0' fill='%23fff'/%3E%3Cellipse stroke='%23000' transform='rotate(-134.6077117919922 276.19342041015625,195.43637084960938) ' ry='90.194158' rx='3.223029' id='svg_5' cy='195.43637' cx='276.193439' stroke-width='0' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E");
+    filter:blur(0.5px);
+    transform:scale(0);
+    animation:blip 5s infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .spark-offset{
+  }
+
+  .chrome:last-of-type .spark{
+    animation-delay:-2.5s;
+  }
+
+  @-webkit-keyframes blip {
+    0% {transform: scale(0);}
+    5% {transform: scale(1.2) rotate(0deg);}
+    6% {transform: scale(1) rotate(0deg);}
+    8% {transform: scale(1) rotate(180deg);}
+    100% {transform: scale(1) rotate(180deg);}
+  }
+
+  .road {
+    --grid-size:90px;
+    --road-color:#2a025d;
+    position:absolute;
+    bottom: -30%;
+    left:0;
+    margin-left: calc(50% - 200px /2 );
+    width: 200px;
+    height: 100%;
+    background-position-y: 0px;
+    background-image: repeating-linear-gradient(90deg, #a684cb 0%, #a684cb 2%, var(--road-color,rgba(115,59,139,1)) 2%, var(--road-color,rgba(115,59,139,1)) 98%,#a684cb 98%);
+    transform:perspective(50vh) rotateX(60deg);
+    z-index:-1;
+  }
+
+  .road:after {
+    content:'';
+    --grid-size:90px;
+    position:absolute;  
+    margin-left: calc(50% - 10px /2 );
+    width: 10px;
+    height: 100%;
+    background-position-y: 0px;
+    background-image: repeating-linear-gradient(0deg, #a684cb 0%, #a684cb 10%, transparent 10%, transparent 20%);
+    animation:moving-grid 0.5s infinite linear;
+  }
+
+}
+
+@media screen and (max-width: 1140px) {
+
+  .home-page {
+
+    .chrome{
+      font-size:calc(10px + 7vh);      
+    }
+
+  }
+
+}
+
+
+@media screen and (max-width: 740px) {
+
+  .home-page {
+
+    .text{
+      top:25%;
+    }
+
+    .chrome{
+      font-size:calc(10px + 5vh);      
+    }
+
+  }
+
 }
