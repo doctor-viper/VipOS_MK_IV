@@ -20,20 +20,8 @@ app.set("view engine","ejs")
  * 
  */
 app.get('/', (req, res) => {
-  //res.send('VipOS MARK IV')
   res.render('home_page.ejs')
-  //res.sendFile(path.resolve(__dirname, './templates/header.html'))
 })
-
-
-// io.on('connection', function (socket) {
-//   socket.emit('greeting-from-server', {
-//       greeting: 'Hello Client'
-//   });
-//   socket.on('greeting-from-client', function (message) {
-//     console.log(message);
-//   });
-// });
 
 
 /**
@@ -42,17 +30,6 @@ app.get('/', (req, res) => {
  */
 app.get('/overlay/cam-bg', (req, res) => {
   res.render('cam_bg.ejs')
-
-  io.on('connection', function (socket) {
-    socket.emit('greeting-from-server', {
-        greeting: 'Hello Client'
-    });
-    socket.on('greeting-from-client', function (message) {
-      console.log(message);
-    });
-  });
-
-
 })
 
 app.get('/overlay/info-bar', (req, res) => {
@@ -70,6 +47,13 @@ app.get('/overlay/text-alert', (req, res) => {
 app.get('/overlay/knight-rider', (req, res) => {
   res.render('knight_rider.ejs')
 })
+
+
+app.get('/api/v1/text', (req,res) => {
+  io.emit('text-alert', { message: 'super cool new test' }); // This will emit the event to all connected sockets
+  res.sendStatus(200);
+})
+
 
 /**
  * 404 / All
