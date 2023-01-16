@@ -1,21 +1,15 @@
 <%- include("templates/header") %>
 
 <div id="viper-text_alert">
-    
-<div class="command cmd"><h1>!cmds</h1></div><div class="command discord"><h1>!discord</h1></div><div class="command socials"><h1>!socials</h1></div><div class="command lurk"><h1>!lurk</h1></div>
-
+<h1></h1>
 </div>
 
 <script>
     var socket = io('http://localhost:5000');
     
-    socket.on('greeting-from-server', function (message) {
-        document.body.appendChild(
-            document.createTextNode(message.greeting)
-        );
-        socket.emit('greeting-from-client', {
-            greeting: 'Hello Server'
-        });
+    socket.on('text-alert', function (message) {
+        var number = Math.floor(Math.random() * 100);
+        document.querySelector('h1').innerHTML = message.message + ' ' + number;
     });
 </script>
 
