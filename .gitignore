@@ -2,6 +2,7 @@ _old.js
 tokens.json
 old_tokens.json
 AUTH_STUFF.txt
+client-info.js
 node_modules/*
 public/fonts/*
 public/video/*
