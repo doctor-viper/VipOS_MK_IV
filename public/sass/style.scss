@@ -156,30 +156,20 @@ h1,h2,h3,h4,h5,h6 {
 @keyframes infobar_side {
 	0% {
 		left: -650px;
-    top: 0;
   }
 	1% {
 		left: 0;
-    top: 0;
-    background: none;
   }
   9% {
     left: 0;
-    top: 0;
   }
   10% {
-    top: -1500px;
-  }
-  99% {
     left: -650px;
-    top: -1500px;
   }
   100% {
     left: -650px;
-    top: 0;
   }
 }
-
 
 
 /* Knight Rider Voice Box Overlay
