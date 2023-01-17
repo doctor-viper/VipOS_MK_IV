@@ -1,15 +1,26 @@
+// Express App + Socket.IO inits
 const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+
+// Get CLient ID + Secret
 const client = require('./client-info');
 
+// Twurple Init
 const { RefreshingAuthProvider } = require('@twurple/auth');
 const { ChatClient } = require('@twurple/chat');
+
+// FileSystem
 const { promises: fs } = require('fs');
 
+
+/**
+ *  Connect to Chat
+ * 
+ */
 async function main() {
 	const clientId = client.id;
 	const clientSecret = client.secret;
@@ -27,12 +38,19 @@ async function main() {
 	await chatClient.connect();
 
 	chatClient.onMessage((channel, user, text) => {
+    
+    const regex = /vipos|vip os|viper os|viperos/ig; 
+    if( text.match(regex) != null && user != 'vipos_mk3' ) {
+      // Detect for VipOS references
+    }
+
 		if (text === '!ping') {
 			chatClient.say(channel, 'Pong!');
 		} else if (text === '!dice') {
 			const diceRoll = Math.floor(Math.random() * 6) + 1;
 			chatClient.say(channel, `@${user} rolled a ${diceRoll}`)
 		}
+
 	});
 
 	chatClient.onSub((channel, user) => {
@@ -54,7 +72,6 @@ main();
  * 
  */
 app.use(express.static('./public'))
-app.use(express.json())
 app.set("view engine","ejs")
 
 
