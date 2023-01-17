@@ -4,7 +4,49 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+const client = require('./client-info');
 
+const { RefreshingAuthProvider } = require('@twurple/auth');
+const { ChatClient } = require('@twurple/chat');
+const { promises: fs } = require('fs');
+
+async function main() {
+	const clientId = client.id;
+	const clientSecret = client.secret;
+	const tokenData = JSON.parse(await fs.readFile('./tokens.json', 'UTF-8'));
+	const authProvider = new RefreshingAuthProvider(
+		{
+			clientId,
+			clientSecret,
+			onRefresh: async newTokenData => await fs.writeFile('./tokens.json', JSON.stringify(newTokenData, null, 4), 'UTF-8')
+		},
+		tokenData
+	);
+
+	const chatClient = new ChatClient({ authProvider, channels: ['dr_viper'] });
+	await chatClient.connect();
+
+	chatClient.onMessage((channel, user, text) => {
+		if (text === '!ping') {
+			chatClient.say(channel, 'Pong!');
+		} else if (text === '!dice') {
+			const diceRoll = Math.floor(Math.random() * 6) + 1;
+			chatClient.say(channel, `@${user} rolled a ${diceRoll}`)
+		}
+	});
+
+	chatClient.onSub((channel, user) => {
+		chatClient.say(channel, `Thanks to @${user} for subscribing to the channel!`);
+	});
+	chatClient.onResub((channel, user, subInfo) => {
+		chatClient.say(channel, `Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
+	});
+	chatClient.onSubGift((channel, user, subInfo) => {
+		chatClient.say(channel, `Thanks to ${subInfo.gifter} for gifting a subscription to ${user}!`);
+	});
+}
+
+main();
 
 /**
  * Setup static directory
@@ -12,6 +54,7 @@ const io = new Server(server);
  * 
  */
 app.use(express.static('./public'))
+app.use(express.json())
 app.set("view engine","ejs")
 
 
