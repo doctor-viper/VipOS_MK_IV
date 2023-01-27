@@ -8,8 +8,8 @@
     var socket = io('http://localhost:5000');
     
     socket.on('text-alert', function (message) {
-        var number = Math.floor(Math.random() * 100);
-        document.querySelector('h1').innerHTML = message.message + ' ' + number;
+        var text = message.message;
+        document.querySelector('h1').innerHTML = text.replace("'","");
     });
 </script>
 

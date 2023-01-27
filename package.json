@@ -9,8 +9,10 @@
   "author": "Doc Viper <viper@docviper.com> (http://doctorviper.com/)",
   "license": "MIT",
   "dependencies": {
+    "@twurple/api": "^5.3.3",
     "@twurple/auth": "^5.3.3",
     "@twurple/chat": "^5.3.3",
+    "@twurple/eventsub-ws": "^5.3.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",

@@ -1,0 +1,18 @@
+<%- include("templates/header") %>
+
+<video id="venom-coin" muted>
+    <source src="/video/Venom_Coin_Stream_Badge.mp4" type="video/mp4" />
+</video>
+
+<script type="text/javascript">
+    document.getElementById('venom-coin').play();
+    document.getElementById('venom-coin').addEventListener('ended',coinHandler,false);
+    function coinHandler(e) {
+        setTimeout(function(){
+            document.getElementById('venom-coin').play();
+        }, 10000);
+    }
+</script>
+
+
+<%- include("templates/footer") %>
