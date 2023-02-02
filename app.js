@@ -6,17 +6,15 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-// Get CLient ID + Secret
-const client = require('./client-info');
+// Chat Functions
+const ViperChat = require('./chat');
 
-// Twurple Init
-const { RefreshingAuthProvider } = require('@twurple/auth');
-const { ChatClient } = require('@twurple/chat');
-const { ApiClient } = require('@twurple/api');
-const { EventSubWsListener } = require('@twurple/eventsub-ws');
 
-// FileSystem
-const { promises: fs } = require('fs');
+/**
+ * Initialize ViperChat function
+ * 
+ */
+ViperChat.init()
 
 
 /**

@@ -1,4 +1,3 @@
-_old.js
 tokens.json
 old_tokens.json
 AUTH_STUFF.txt
@@ -6,4 +5,4 @@ node_modules/*
 public/fonts/*
 public/video/*
 discord_key.txt
-client-info.js
+config/*
