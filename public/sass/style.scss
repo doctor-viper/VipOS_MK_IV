@@ -289,6 +289,145 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+
+
+#venom-coin {
+  
+  animation: coinfade 30s ease infinite;
+
+}
+
+@keyframes coinfade {
+	0% {
+    opacity: 1;
+	}
+  17% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+#viper-tv_guide {
+
+  height: 1080px;
+  width: 1920px;
+  background: #efefef;
+  position: absolute;
+  overflow: hidden;
+
+  #green-screen {
+    position: absolute;
+    //background-color: green;
+    background: url('../img/purple_bg_2.jpg');
+    background-position-y: 50%;
+    background-size: cover;
+    height: 50%;
+    width: 100%;
+    z-index: 10;
+  }
+
+  table {
+
+    position: relative;
+    top: 50%;
+    width: 100%;
+
+    th,
+    td {
+      border-top: 5px solid #787887;
+      border-left: 5px solid #b3b7d6;
+      border-right: 5px solid #000252;
+      border-bottom: 5px solid #07083b;
+      font-size: 45px;
+      font-weight: bold;
+      font-family: 'Arial', 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: -3px;
+      line-height: 50px;
+      padding: 7px 10px 5px;
+      text-shadow: 3px 3px black;
+    }
+
+    thead {
+
+      position: relative;
+      z-index: 1;
+
+      th {
+        background-color: #112385;
+        color: #e2d560;
+        width: 21.25%;
+      }
+      th#current-time {
+        color: #fff;
+        width: 15%;
+      }
+    }
+
+    tbody {
+      
+      position: relative;
+      animation: tvguide 35s linear infinite; 
+
+      tr { width: 100%; }
+
+      td {
+        background-color: #0f2555;
+        color: #fff;
+
+        &.channel-title {
+          color: #e2d560;
+          text-align: center;
+        }
+      }
+
+      tr.viperverse {
+        td {
+          padding: 100px 10px;
+          background-color: #05122c;
+          text-align: center;
+          //background: #aaaaaa;
+          font-family: 'NeoNoire', Arial;
+          font-size: 100px;
+          letter-spacing: 0px;
+          text-shadow: -3px 3px #00fffc, -6px 6px #ff00f0, -9px 9px #000;
+        }
+      }
+
+      // &.scroll-copy {
+      //   top: 1098px;
+      //   //animation: tvguide-2 10s linear infinite; 
+      // }
+
+    }
+  }
+
+}
+	
+
+@keyframes tvguide {
+	0% {
+    top: 0;
+	}
+  100% {
+    top: -2456px;
+  }  
+}
+
+
+
 /* 80s grid home page
 -------------------------------------------------------------------------------*/
 

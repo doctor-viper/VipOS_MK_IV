@@ -5,13 +5,39 @@
 </video>
 
 <script type="text/javascript">
-    document.getElementById('venom-coin').play();
-    document.getElementById('venom-coin').addEventListener('ended',coinHandler,false);
+
+    var coin = document.getElementById('venom-coin');
+
+    coin.play();
+    coin.addEventListener('ended',coinHandler,false);
+    coin.timeout = 25000;
+    
     function coinHandler(e) {
         setTimeout(function(){
-            document.getElementById('venom-coin').play();
-        }, 10000);
+            coin.play();
+        }, e.currentTarget.timeout);
     }
+
+    // var socket = io('http://localhost:5000');
+    
+    // socket.on('coin-flip', function () {
+    //     coin.removeEventListener('ended', coinHandler);
+    //     coin.playbackRate = 3;
+    //     coin.timeout = 0;
+        
+    //     coin.addEventListener('ended',coinHandler,false);
+        
+
+
+
+    //     setTimeout(function(){
+    //         coin.removeEventListener('ended', coinHandler);
+    //         coin.playbackRate = 1;
+    //         coin.timeout = 10000;
+    //         coin.addEventListener('ended',coinHandler,false);
+    //     }, 10000)
+
+    // });
 </script>
 
 

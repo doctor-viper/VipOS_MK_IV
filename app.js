@@ -14,7 +14,7 @@ const ViperChat = require('./chat');
  * Initialize ViperChat function
  * 
  */
-ViperChat.init()
+// ViperChat.init()
 
 
 /**
@@ -47,6 +47,10 @@ app.get('/overlay/info-bar', (req, res) => {
   res.render('info_bar.ejs')
 })
 
+app.get('/overlay/tv-guide', (req, res) => {
+  res.render('tv_guide.ejs')
+})
+
 app.get('/overlay/venom-coin',(req, res) => {
   res.render('venom_coin.ejs')
 })
@@ -63,11 +67,18 @@ app.get('/overlay/knight-rider', (req, res) => {
   res.render('knight_rider.ejs')
 })
 
+app.get('/api/v1/coin', (req,res) => {
+	console.log('stop coin');
+	io.emit('coin-flip', {});
+	res.sendStatus(200);	
+})
+
 app.post('/api/v1/text', express.json(), (req, res) => {
   io.emit('text-alert', { message: req.body.msg });
   console.log(req.body); //TO-DO: remove this when done
   res.sendStatus(200);
 })
+
 
 /**
  * 404 / All
