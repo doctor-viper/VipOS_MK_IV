@@ -32,6 +32,12 @@ const init = async function() {
 		},
 		tokenData
 	);
+    
+
+    // const apiClient = new ApiClient({ authProvider });
+	// const listener = new EventSubWsListener({ apiClient });
+	// await listener.start();
+    
 
     // Chat Client init
 	const chatClient = new ChatClient({ authProvider, channels: ['dr_viper'] });
@@ -48,7 +54,31 @@ const init = async function() {
 	chatClient.onMessage((channel, user, text, msg) => {        
         if(text === '!startraffles') { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleStart(); } }
         if(text === '!endraffles')   { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleEnd();   } }
+
+        // const regex = /vipos|vip os|viper os|viperos/ig; 
+		// if( text.match(regex) != null && user != 'vipos_mk3' ) {
+		// // Detect for VipOS references
+		// }
+
+		// if (text === '!ping') {
+		// 	chatClient.say(channel, 'Pong!');
+		// } else if (text === '!dice') {
+		// 	const diceRoll = Math.floor(Math.random() * 6) + 1;
+		// 	chatClient.say(channel, `@${user} rolled a ${diceRoll}`)
+		// }
+
 	});
+
+
+	// chatClient.onSub((channel, user) => {
+	// 	chatClient.say(channel, `Thanks to @${user} for subscribing to the channel!`);
+	// });
+	// chatClient.onResub((channel, user, subInfo) => {
+	// 	chatClient.say(channel, `Thanks to @${user} for subscribing to the channel for a total of ${subInfo.months} months!`);
+	// });
+	// chatClient.onSubGift((channel, user, subInfo) => {
+	// 	chatClient.say(channel, `Thanks to ${subInfo.gifter} for gifting a subscription to ${user}!`);
+	// });
 
 }
 
