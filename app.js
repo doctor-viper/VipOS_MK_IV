@@ -6,15 +6,78 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-// Chat Functions
-const ViperChat = require('./chat');
+// Chat Client Info
+const client = require('./config/client-info');
 
+// Twurple Init
+const { RefreshingAuthProvider } = require('@twurple/auth');
+const { ChatClient } = require('@twurple/chat');
+
+// FileSystem
+const { promises: fs } = require('fs');
+
+// Raffle functions
+const { RaffleStart, RaffleEnd } = require('./raffles')
 
 /**
- * Initialize ViperChat function
+ *  Connect to Chat
  * 
  */
-// ViperChat.init()
+const chatInit = async function() {
+
+  // Auth Provider init
+  const clientId = client.id;
+  const clientSecret = client.secret;
+  const tokenData = JSON.parse(await fs.readFile('./tokens.json', 'UTF-8'));
+  const authProvider = new RefreshingAuthProvider(
+    {
+      clientId,
+      clientSecret,
+      onRefresh: async newTokenData => await fs.writeFile('./tokens.json', JSON.stringify(newTokenData, null, 4), 'UTF-8')
+    },
+    tokenData
+  );
+  
+
+  // const apiClient = new ApiClient({ authProvider });
+  // const listener = new EventSubWsListener({ apiClient });
+  // await listener.start();
+  
+
+  // Chat Client init
+  const chatClient = new ChatClient({ authProvider, channels: ['dr_viper'] });
+  await chatClient.connect();
+    
+
+  // Indicate when bot is connected to chat
+  chatClient.onRegister(() => {
+      console.log("chat is connected")
+  })
+
+
+  // Listen to chat messages
+  chatClient.onMessage((channel, user, text, msg) => {        
+
+ 
+    if(msg.isHighlight && (msg.userInfo.isBroadcaster || msg.userInfo.isMod || msg.userInfo.isVip)) {
+      // Do Highlight stuff
+      io.emit('text-alert', { message: text });
+    }
+
+    console.log(msg);
+    console.log(text);
+
+    if(text === '!startraffles') { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleStart(); } }
+    if(text === '!endraffles')   { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleEnd();   } }
+
+    if(text === "!textalert") { chatClient.say(channel, "command is working"); io.emit('text-alert', { message: "req.body.msg" }); }
+
+
+    
+  });
+
+
+}
 
 
 /**
@@ -67,11 +130,11 @@ app.get('/overlay/knight-rider', (req, res) => {
   res.render('knight_rider.ejs')
 })
 
-app.get('/api/v1/coin', (req,res) => {
-	console.log('stop coin');
-	io.emit('coin-flip', {});
-	res.sendStatus(200);	
-})
+
+/**
+ * API Endpoints
+ * 
+ */
 
 app.post('/api/v1/text', express.json(), (req, res) => {
   io.emit('text-alert', { message: req.body.msg });
@@ -96,3 +159,10 @@ app.all('*', (req, res) => {
 server.listen(5000, async () => {
   console.log('server is listening on port 5000....')
 })
+
+
+/**
+ * Initialize the chat bot
+ * 
+ */
+chatInit()

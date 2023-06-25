@@ -521,9 +521,17 @@ h1, h2, h3, h4, h5, h6 {
 #viper-text_alert h1 {
   color: #fff;
   font-size: 40px;
-  line-height: 97px;
+  line-height: 60px;
   text-align: center;
   text-shadow: -3px 3px #00fffc, -6px 6px #ff00f0, -9px 9px #000;
+  width: 1680px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s;
+  word-wrap: break-word;
+}
+#viper-text_alert h1.fade {
+  opacity: 1;
 }
 
 @keyframes coinfade {

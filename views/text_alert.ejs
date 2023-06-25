@@ -8,9 +8,15 @@
     var socket = io('http://localhost:5000');
     
     socket.on('text-alert', function (message) {
-        var text = message.message;
-        document.querySelector('h1').innerHTML = text.replace("'","");
+        var text = message.message;        
+        document.querySelector('h1').innerHTML = text.replace(/'/gi,"").replace(/ /gi,"&nbsp;&nbsp;");
+        document.querySelector('h1').classList.toggle('fade');
+        setTimeout(() => {
+            document.querySelector('h1').classList.toggle('fade');
+        }, "10000");
     });
+
+
 </script>
 
 <%- include("templates/footer") %>
