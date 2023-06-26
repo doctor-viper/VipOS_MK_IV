@@ -9,16 +9,16 @@
   "author": "Doc Viper <viper@docviper.com> (http://doctorviper.com/)",
   "license": "MIT",
   "dependencies": {
-    "@twurple/api": "^5.3.3",
-    "@twurple/auth": "^5.3.3",
-    "@twurple/chat": "^5.3.3",
-    "@twurple/eventsub-ws": "^5.3.3",
-    "ejs": "^3.1.8",
+    "@twurple/api": "^6.2.1",
+    "@twurple/auth": "^6.2.1",
+    "@twurple/chat": "^6.2.1",
+    "@twurple/eventsub-ws": "^6.2.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
-    "nodemon": "^2.0.20",
-    "socket.io": "^4.5.4",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.7.0",
     "tmi.js": "^1.8.5"
   }
 }
