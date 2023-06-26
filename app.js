@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 // Chat Client inits
-const chat = require('./chat')(io);
+const chat = require('./modules/chat')(io);
 
 
 /**

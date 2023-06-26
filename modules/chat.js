@@ -1,5 +1,5 @@
 // Chat Client Info
-const client = require('./config/client-info');
+const client = require('../config/client-info');
 
 // Twurple Init
 const { RefreshingAuthProvider } = require('@twurple/auth');

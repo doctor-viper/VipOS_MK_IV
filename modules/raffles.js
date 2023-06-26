@@ -9,7 +9,7 @@
 const tmi = require('tmi.js');
 
 // Get the configuration options.
-const { opts } = require('./config/raffle-info')
+const { opts } = require('../config/raffle-info')
 
 
 /**
