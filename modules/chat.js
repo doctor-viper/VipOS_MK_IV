@@ -25,16 +25,16 @@ module.exports = function(importIO) {
  * 
  */
 const chatInit = async function() {
-     
+
     // Chat Client init
     const chatClient = new ChatClient({ authProvider, channels: ['dr_viper'] });
     await chatClient.connect();
-        
+
     // Indicate when bot is connected to chat
     chatClient.onConnect(() => {
         console.log("chat is connected")
     })
-    
+
     // Listen to chat messages
     chatClient.onMessage((channel, user, text, msg) => {        
       
@@ -47,18 +47,18 @@ const chatInit = async function() {
         // Do Highlight stuff
         io.emit('text-alert', { message: text });
       }
-      
+
       // Console some things
       console.log(msg);
       console.log(text);
-      
+
       /**
        * Automated raffle start / stop commands
        * 
        */
       if(text === '!startraffles') { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleStart(); } }
       if(text === '!endraffles')   { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleEnd();   } }
-      
+
       /**
        * Just a test command for now, will
        * likely remove
@@ -68,12 +68,12 @@ const chatInit = async function() {
         chatClient.say(channel, "command is working"); 
         io.emit('text-alert', { message: 'test 1 2 3' });
       }  
-      
+
     });
-    
+
   }
 
-  
+
 /**
  * Initialize the chat bot
  * 
