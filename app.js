@@ -9,7 +9,6 @@ const io = new Server(server);
 // Chat Client inits
 const chat = require('./modules/chat')(io);
 
-
 /**
  * Setup static directory
  *  and rendering engine
