@@ -1,4 +1,9 @@
+// Chat Client Info ( ID + Secret )
+const client = require('../config/client-info');
+// Get the Refreshing Auth provider ( will refresh tokens as needed )
 const { RefreshingAuthProvider } = require('@twurple/auth');
+// FileSystem
+const { promises: fs } = require('fs');
 
 let authProvider;
 
@@ -15,8 +20,10 @@ const authInit = async function() {
     },
     tokenData
     );
+
 }
 
+authInit();
 
 module.exports = {
     authProvider: authProvider
