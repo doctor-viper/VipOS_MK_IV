@@ -5,3 +5,4 @@ node_modules/*
 public/fonts/*
 public/video/*
 config/*
+package-lock.json
