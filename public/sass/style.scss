@@ -532,6 +532,7 @@ h1,h2,h3,h4,h5,h6 {
     -webkit-text-fill-color: transparent; 
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(255,255,255,0.4);
+    background-clip: text;
     position:relative; 
     
   }
@@ -553,6 +554,7 @@ h1,h2,h3,h4,h5,h6 {
     top:0;
     left:0;
     -webkit-background-clip:text;
+    background-clip: text;
     z-index:999;
     background-size: 400% 400%;
     animation:shine 15s ease infinite;
@@ -580,14 +582,11 @@ h1,h2,h3,h4,h5,h6 {
     animation-timing-function: ease-in-out;
   }
 
-  .spark-offset{
-  }
-
   .chrome:last-of-type .spark{
     animation-delay:-2.5s;
   }
 
-  @-webkit-keyframes blip {
+  @keyframes blip {
     0% {transform: scale(0);}
     5% {transform: scale(1.2) rotate(0deg);}
     6% {transform: scale(1) rotate(0deg);}
