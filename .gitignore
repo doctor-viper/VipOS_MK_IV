@@ -4,5 +4,4 @@ AUTH_STUFF.txt
 node_modules/*
 public/fonts/*
 public/video/*
-discord_key.txt
 config/*

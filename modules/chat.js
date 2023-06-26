@@ -27,12 +27,12 @@ const chatInit = async function() {
     // Auth Provider init
     const clientId = client.id;
     const clientSecret = client.secret;
-    const tokenData = JSON.parse(await fs.readFile('./tokens.json', 'UTF-8'));
+    const tokenData = JSON.parse(await fs.readFile('./config/tokens.json', 'UTF-8'));
     const authProvider = new RefreshingAuthProvider(
       {
         clientId,
         clientSecret,
-        onRefresh: async newTokenData => await fs.writeFile('./tokens.json', JSON.stringify(newTokenData, null, 4), 'UTF-8')
+        onRefresh: async newTokenData => await fs.writeFile('./config/tokens.json', JSON.stringify(newTokenData, null, 4), 'UTF-8')
       },
       tokenData
     );
