@@ -1,6 +1,7 @@
 // Express App + Socket.IO inits
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -16,6 +17,7 @@ const chat = require('./modules/chat')(io);
  */
 app.use(express.static('./public'))
 app.set("view engine","ejs")
+app.use(cors())
 
 
 /**
@@ -67,7 +69,6 @@ app.get('/overlay/knight-rider', (req, res) => {
 
 app.post('/api/v1/text', express.json(), (req, res) => {
   io.emit('text-alert', { message: req.body.msg });
-  console.log(req.body); //TO-DO: remove this when done
   res.sendStatus(200);
 })
 

@@ -6,14 +6,22 @@
 
 <script>
     var socket = io('http://localhost:5000');
-    
+    var textAlertTimeout;
+
     socket.on('text-alert', function (message) {
         var text = message.message;        
         document.querySelector('h1').innerHTML = text.replace(/'/gi,"").replace(/ /gi,"&nbsp;&nbsp;");
-        document.querySelector('h1').classList.toggle('fade');
-        setTimeout(() => {
+        if(!document.querySelector('h1').classList.contains('fade')) {
             document.querySelector('h1').classList.toggle('fade');
-        }, "10000");
+            textAlertTimeout = setTimeout(() => {
+                document.querySelector('h1').classList.toggle('fade');
+            }, "10000");
+        } else {
+            clearTimeout( textAlertTimeout );
+            textAlertTimeout = setTimeout(() => {
+                document.querySelector('h1').classList.toggle('fade');
+            }, "10000");
+        }      
     });
 
 

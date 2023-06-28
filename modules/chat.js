@@ -49,8 +49,8 @@ const chatInit = async function() {
       }
 
       // Console some things
-      console.log(msg);
-      console.log(text);
+      // console.log(msg);
+      // console.log(text);
 
       /**
        * Automated raffle start / stop commands
@@ -58,16 +58,6 @@ const chatInit = async function() {
        */
       if(text === '!startraffles') { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleStart(); } }
       if(text === '!endraffles')   { if(msg.userInfo.isMod || msg.userInfo.isBroadcaster) { RaffleEnd();   } }
-
-      /**
-       * Just a test command for now, will
-       * likely remove
-       * 
-       */
-      if(text === "!textalert") { 
-        chatClient.say(channel, "command is working"); 
-        io.emit('text-alert', { message: 'test 1 2 3' });
-      }  
 
     });
 
