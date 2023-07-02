@@ -73,6 +73,12 @@ app.post('/api/v1/text', express.json(), (req, res) => {
 })
 
 
+app.post('/api/v1/bg-alert', express.json(), (req, res) => {
+  io.emit('bg-alert');
+  res.sendStatus(200);
+})
+
+
 /**
  * 404 / All
  * 

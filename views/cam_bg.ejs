@@ -2,4 +2,32 @@
 
 <div id="viper-animated_bg"></div>
 
+
+<script>
+    var socket = io('http://localhost:5000');
+    var bgAlertTimeout;
+    var animatedBG = document.querySelector('#viper-animated_bg');
+
+    socket.on('bg-alert', function () {
+
+        if(!animatedBG.classList.contains('alert')) {
+        
+            animatedBG.classList.toggle('alert');          
+
+            bgAlertTimeout = setTimeout(() => {
+                animatedBG.classList.toggle('alert');   
+            }, "3000");
+            
+        } else {
+            clearTimeout( bgAlertTimeout );
+
+            textAlertTimeout = setTimeout(() => {
+                animatedBG.classList.toggle('alert');   
+            }, "3000");
+        }      
+    });
+
+
+</script>
+
 <%- include("templates/footer") %>
