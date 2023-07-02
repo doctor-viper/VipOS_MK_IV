@@ -332,9 +332,9 @@ h1,h2,h3,h4,h5,h6 {
 #viper-chyron {
 
   width: 1900px;
-  border-top: 1px solid #000;
-  height: 139px;
-  animation: chyron 35s linear infinite; 
+  //border-top: 1px solid #000;
+  height: 140px;
+  animation: chyron 30s linear infinite; 
   position: absolute;
   top: 140px;
 
@@ -342,11 +342,12 @@ h1,h2,h3,h4,h5,h6 {
     position: absolute;
     top: 0px;
     left: 150px;
-    height: 139px;
+    height: 140px;
     h1 {
-      color: #ffae00;
+      color: #fff;
       font-size: 40px;
-      text-shadow: -2px 2px #ff00f0, -4px 4px #000;
+      //text-shadow: -2px 2px #ff00f0, -4px 4px #000;
+      text-shadow: -2px 2px #00fffc, -4px 4px #ff00f0, -6px 6px #000;
       padding: 45px 0 0 0;
       
       span.dash {
@@ -355,7 +356,7 @@ h1,h2,h3,h4,h5,h6 {
         font-weight: bold;
         letter-spacing: -5px;
         padding: 0 20px 0 0;
-        text-shadow: none;
+        text-shadow: -1px 1px #000;
       }
     }
   }
@@ -365,7 +366,7 @@ h1,h2,h3,h4,h5,h6 {
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 139px;
+    height: 140px;
     width: 1900px;
     z-index: -2000;
   }
@@ -376,14 +377,14 @@ h1,h2,h3,h4,h5,h6 {
   0% {
     top: 140px;
   }
-  30% {
+  40% {
     top: 140px;
   }
-  35% {
+  45% {
     top: 0;
   }
   65% {
-    top: 0;
+    top: 0%
   }
   70% {
     top: 140px;
