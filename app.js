@@ -57,6 +57,10 @@ app.get('/overlay/text-alert', (req, res) => {
   res.render('text_alert.ejs')
 })
 
+app.get('/overlay/chyron', (req, res) => {
+  res.render('chyron.ejs')
+})
+
 app.get('/overlay/knight-rider', (req, res) => {
   res.render('knight_rider.ejs')
 })

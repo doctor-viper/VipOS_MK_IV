@@ -1,0 +1,24 @@
+<%- include("templates/header") %>
+
+<div id="viper-chyron">
+
+    <div id="name">
+        <h1><span class="dash">///</span><span class="first">Doc</span>&nbsp;&nbsp;<span class="last">Viper</span></h1>
+    </div>
+
+    <div id="background"></div>
+
+</div>
+
+
+<script>
+    var socket = io('http://localhost:5000');
+
+    socket.on('chryon-update', function () {
+
+    });
+
+
+</script>
+
+<%- include("templates/footer") %>

@@ -303,11 +303,7 @@ h1,h2,h3,h4,h5,h6 {
         left: 950px;
       }
     }
-
-
-
   }
-
 
   h1 {
     color: #f0f0f0;
@@ -327,6 +323,74 @@ h1,h2,h3,h4,h5,h6 {
     }
   }
 
+}
+
+
+/* Viperverse Studios TV Guide
+-------------------------------------------------------------------------------*/
+
+#viper-chyron {
+
+  width: 1900px;
+  border-top: 1px solid #000;
+  height: 139px;
+  animation: chyron 35s linear infinite; 
+  position: absolute;
+  top: 140px;
+
+  #name {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    height: 139px;
+    h1 {
+      color: #ffae00;
+      font-size: 40px;
+      text-shadow: -2px 2px #ff00f0, -4px 4px #000;
+      padding: 45px 0 0 0;
+      
+      span.dash {
+        color: #fff;
+        font-family: 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        letter-spacing: -5px;
+        padding: 0 20px 0 0;
+        text-shadow: none;
+      }
+    }
+  }
+
+  #background {
+    background: url(../img/dv_background.gif);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 139px;
+    width: 1900px;
+    z-index: -2000;
+  }
+
+}
+
+@keyframes chyron {
+  0% {
+    top: 140px;
+  }
+  30% {
+    top: 140px;
+  }
+  35% {
+    top: 0;
+  }
+  65% {
+    top: 0;
+  }
+  70% {
+    top: 140px;
+  }
+  100% {
+    top: 140px;
+  }
 }
 
 
