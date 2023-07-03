@@ -36,6 +36,48 @@ h1,h2,h3,h4,h5,h6 {
 	background-size: 300% 300%;
 	animation: gradient 10s ease infinite;
 
+  &.random1 {
+    background: linear-gradient(-90deg, #ff0000, #ffdb78, #ff0000);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random2 {
+    background: linear-gradient(-90deg, #00fffc, #ff00f0, #00fffc);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random3 {
+    background: linear-gradient(-90deg, #2b336f, #7a3291, #2b336f);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random4 {
+    background: linear-gradient(-90deg, #e75333, #00fffc, #e75333);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random5 {
+    background: linear-gradient(-90deg, #ff00f0, #2b336f, #ff00f0);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random6 {
+    background: linear-gradient(-90deg, #00e439, #d0ff00, #00e439);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
+  &.random7 {
+    background: linear-gradient(-90deg, #fd5102, #00e1ff, #fd5102);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+  }
+
   &.alert {
     background: linear-gradient(-90deg, #ff0000, #ffffff, #ff0000, #ffffff, #ff0000);
     background-size: 200% 200%;
@@ -343,21 +385,25 @@ h1,h2,h3,h4,h5,h6 {
     top: 0px;
     left: 150px;
     height: 140px;
+
+    span.dash {
+      color: #fff;
+      font-size: 40px;;
+      font-family: 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight:900;
+      letter-spacing: -7px;
+      text-shadow: -1px 1px #000;
+      position: absolute;
+      transform: scaleX(2);
+      top: 45px;
+    }
+
     h1 {
       color: #fff;
       font-size: 40px;
       //text-shadow: -2px 2px #ff00f0, -4px 4px #000;
       text-shadow: -2px 2px #00fffc, -4px 4px #ff00f0, -6px 6px #000;
-      padding: 45px 0 0 0;
-      
-      span.dash {
-        color: #fff;
-        font-family: 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: bold;
-        letter-spacing: -5px;
-        padding: 0 20px 0 0;
-        text-shadow: -1px 1px #000;
-      }
+      padding: 45px 0 0 70px;      
     }
   }
 
