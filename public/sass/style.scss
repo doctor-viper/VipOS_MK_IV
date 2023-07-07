@@ -542,6 +542,59 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+/* terminator overlay
+-------------------------------------------------------------------------------*/
+
+#viper-terminator {
+
+  width: 1900px;
+  height: 1060px;
+
+  #red-background {
+    position: absolute;
+    height: 1060px;
+    width: 1900px;
+    background: red;
+    z-index: -1000;
+    opacity: 0.75;
+  }
+
+  table {
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    font-family: 'Consolas', Verdana, sans-serif;
+    filter: blur(0.5px);
+
+    tr {
+      td {
+        padding: 0 15px 2px 0;
+        &.slot {
+          padding-right: 25px;
+        }
+        &.super-padding {
+          padding-right: 75px;
+        }
+      }
+    }
+  }
+  
+  #left-table {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+  }
+  
+  #center-table {
+    position: absolute;
+    left: 650px;
+    top: 750px;
+  }
+
+
+}
+
+
 /* 80s grid home page
 -------------------------------------------------------------------------------*/
 .home-page {

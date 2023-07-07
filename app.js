@@ -61,6 +61,10 @@ app.get('/overlay/chyron', (req, res) => {
   res.render('chyron.ejs')
 })
 
+app.get('/overlay/terminator', (req, res) => {
+  res.render('terminator.ejs')
+})
+
 app.get('/overlay/knight-rider', (req, res) => {
   res.render('knight_rider.ejs')
 })
