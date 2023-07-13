@@ -551,6 +551,7 @@ h1,h2,h3,h4,h5,h6 {
   height: 1060px;
 
   #red-background {
+    display: none;
     position: absolute;
     height: 1060px;
     width: 1900px;
@@ -567,6 +568,7 @@ h1,h2,h3,h4,h5,h6 {
     filter: blur(0.5px);
 
     tr {
+      display: none;
       td {
         padding: 0 15px 2px 0;
         &.slot {
